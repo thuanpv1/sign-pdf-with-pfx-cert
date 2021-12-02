@@ -1,0 +1,10 @@
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Debug\sign-pdf-with-pfx-cert.exe.config
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Debug\sign-pdf-with-pfx-cert.exe
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Debug\sign-pdf-with-pfx-cert.pdb
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pdf-with-pfx-cert.csprojAssemblyReference.cache
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign_pdf_with_pfx_cert.Form1.resources
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign_pdf_with_pfx_cert.Properties.Resources.resources
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pdf-with-pfx-cert.csproj.GenerateResource.cache
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pdf-with-pfx-cert.csproj.CoreCompileInputs.cache
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pdf-with-pfx-cert.exe
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pdf-with-pfx-cert.pdb

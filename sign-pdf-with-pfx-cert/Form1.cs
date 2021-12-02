@@ -28,19 +28,22 @@ namespace sign_pdf_with_pfx_cert
 
         }
 
+        public void test()
+        {
+
+        }
         public string SignPDF(string pdfPath, string pfxPath, string pfxPassword,  int locationx, int locationy, int numPage)
         {
-            byte[] bytes = File.ReadAllBytes(pdfPath);
             string strRe = "";
             try
             {
-                //Initialize the Windows store.
-                X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-                //store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
 
                 X509Certificate2 certClient = null;
                 certClient = new X509Certificate2(File.ReadAllBytes(pfxPath), pfxPassword, X509KeyStorageFlags.Exportable);
 
+                var privateKey = Org.BouncyCastle.Security.DotNetUtilities.GetKeyPair(certClient.PrivateKey).Private;
+
+                IExternalSignature externalSignature = new PrivateKeySignature(privateKey, "SHA-256");
 
                 //Get Cert Chain
                 IList<X509Certificate> chain = new List<X509Certificate>();
@@ -54,18 +57,12 @@ namespace sign_pdf_with_pfx_cert
                 }
 
                 string dtn = DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
-                System.IO.FileStream stream = new FileStream(@".\" + dtn + ".pdf", FileMode.CreateNew);
-                System.IO.BinaryWriter writer = new BinaryWriter(stream);
-                writer.Write(bytes, 0, bytes.Length);
-                writer.Close();
 
-                PdfReader inputPdf = new PdfReader(@".\" + dtn + ".pdf");
+                PdfReader inputPdf = new PdfReader(pdfPath);
 
-                FileStream signedPdf = new FileStream(@".\" + dtn + "_signed.pdf", FileMode.Create);
+                FileStream signedPdf = new FileStream(@"output\" + dtn + "_signed.pdf", FileMode.Create);
 
-                PdfStamper pdfStamper = PdfStamper.CreateSignature(inputPdf, signedPdf, '\0');
-
-                IExternalSignature externalSignature = new X509Certificate2Signature(certClient, "SHA-1");
+                PdfStamper pdfStamper = PdfStamper.CreateSignature(inputPdf, signedPdf, '\0', null, true);
 
                 Console.WriteLine(certClient);
 
@@ -76,7 +73,8 @@ namespace sign_pdf_with_pfx_cert
                 int positionyrel = positiony - 55;
                 int positionxrel = positionx + 160;
 
-                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(positionx, positiony, positionxrel, positionyrel), numPage, "Signature");
+                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(positionx, positiony, positionxrel, positionyrel), numPage, certClient.GetSerialNumberString());
+
                 signatureAppearance.Reason = "I have reviewed this document";
                 signatureAppearance.Location = "Hanoi";
                 signatureAppearance.Contact = "Email: info@egt.com.vn";
@@ -98,14 +96,14 @@ namespace sign_pdf_with_pfx_cert
                 pdfStamper.Close();
 
 
-                File.Delete(@".\" + dtn + ".pdf");
+                File.Delete(@"output\" + dtn + ".pdf");
 
-                Byte[] input = File.ReadAllBytes(@".\" + dtn + "_signed.pdf");
+                Byte[] input = File.ReadAllBytes(@"output\" + dtn + "_signed.pdf");
 
                 strRe = Convert.ToBase64String(input);
             }
-            catch (Exception) {
-
+            catch (Exception ex) {
+                Console.WriteLine(ex.ToString());
             }
             return strRe;
         }
@@ -117,8 +115,8 @@ namespace sign_pdf_with_pfx_cert
             string pfxPassword = this.textBoxPfxPassword.Text;
             try
             {
-                double coorX = Double.Parse(this.textBoxCoordinateX.Text);
-                double coorY = Double.Parse(this.textBoxCoordinateY.Text);
+                int coorX = Int32.Parse(this.textBoxCoordinateX.Text);
+                int coorY = Int32.Parse(this.textBoxCoordinateY.Text);
                 int pageNum = Int32.Parse(this.textBoxPageNumber.Text);
 
                 // validate path
@@ -138,7 +136,7 @@ namespace sign_pdf_with_pfx_cert
                 if (coorX < 0) coorX = 0;
                 if (coorY < 0) coorY = 0;
 
-
+                SignPDF(pathToPdf, pathToPfx, pfxPassword, coorX, coorY, pageNum);
             }
             catch (Exception ex)
             {
@@ -146,6 +144,38 @@ namespace sign_pdf_with_pfx_cert
                 MessageBox.Show("Something is wrong coordinateX or coordinateY or pageNumber occurred, please check it again", "Error");
             }
 
+        }
+
+        private void buttonBrowsePfx_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Multiselect = false;
+            openFileDialog1.Filter = "Files|*.pfx;*.p12";
+
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = openFileDialog1.FileName;
+                this.textBoxPathToPfx.Text = file;
+            }
+        }
+
+        private void buttonBrowsePdf_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Multiselect = false;
+            openFileDialog1.Filter = "Files|*.pdf;*.PDF";
+
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = openFileDialog1.FileName;
+                this.textBoxPathToPdf.Text = file;
+                PdfReader inputPdf = new PdfReader(file);
+                // Page size
+                iTextSharp.text.Rectangle pagesize = inputPdf.GetPageSize(1);
+                labelPdfSize.Text = "PdfSize: " + pagesize.Width.ToString() + "x" + pagesize.Height.ToString();
+            }
         }
     }
 }

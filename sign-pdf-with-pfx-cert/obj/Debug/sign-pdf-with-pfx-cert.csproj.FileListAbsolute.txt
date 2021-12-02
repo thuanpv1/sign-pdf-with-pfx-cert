@@ -8,3 +8,7 @@ D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pd
 D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pdf-with-pfx-cert.csproj.CoreCompileInputs.cache
 D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pdf-with-pfx-cert.exe
 D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pdf-with-pfx-cert.pdb
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Debug\BouncyCastle.Crypto.dll
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Debug\itextsharp.dll
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Debug\itextsharp.xml
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Debug\sign-pdf-with-pfx-cert.csproj.CopyComplete

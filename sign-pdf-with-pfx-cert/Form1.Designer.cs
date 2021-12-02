@@ -41,11 +41,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxPfxPassword = new System.Windows.Forms.TextBox();
+            this.buttonBrowsePdf = new System.Windows.Forms.Button();
+            this.buttonBrowsePfx = new System.Windows.Forms.Button();
+            this.labelPdfSize = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(65, 332);
+            this.button1.Location = new System.Drawing.Point(65, 359);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 41);
             this.button1.TabIndex = 0;
@@ -57,14 +60,14 @@
             // 
             this.textBoxPathToPdf.Location = new System.Drawing.Point(175, 82);
             this.textBoxPathToPdf.Name = "textBoxPathToPdf";
-            this.textBoxPathToPdf.Size = new System.Drawing.Size(671, 22);
+            this.textBoxPathToPdf.Size = new System.Drawing.Size(541, 22);
             this.textBoxPathToPdf.TabIndex = 1;
             // 
             // textBoxPathToPfx
             // 
-            this.textBoxPathToPfx.Location = new System.Drawing.Point(175, 121);
+            this.textBoxPathToPfx.Location = new System.Drawing.Point(175, 148);
             this.textBoxPathToPfx.Name = "textBoxPathToPfx";
-            this.textBoxPathToPfx.Size = new System.Drawing.Size(671, 22);
+            this.textBoxPathToPfx.Size = new System.Drawing.Size(541, 22);
             this.textBoxPathToPfx.TabIndex = 2;
             // 
             // label1
@@ -80,7 +83,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 124);
+            this.label2.Location = new System.Drawing.Point(62, 151);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 17);
             this.label2.TabIndex = 4;
@@ -88,21 +91,21 @@
             // 
             // textBoxCoordinateX
             // 
-            this.textBoxCoordinateX.Location = new System.Drawing.Point(175, 198);
+            this.textBoxCoordinateX.Location = new System.Drawing.Point(175, 225);
             this.textBoxCoordinateX.Name = "textBoxCoordinateX";
             this.textBoxCoordinateX.Size = new System.Drawing.Size(205, 22);
             this.textBoxCoordinateX.TabIndex = 5;
             // 
             // textBoxCoordinateY
             // 
-            this.textBoxCoordinateY.Location = new System.Drawing.Point(175, 237);
+            this.textBoxCoordinateY.Location = new System.Drawing.Point(175, 264);
             this.textBoxCoordinateY.Name = "textBoxCoordinateY";
             this.textBoxCoordinateY.Size = new System.Drawing.Size(204, 22);
             this.textBoxCoordinateY.TabIndex = 6;
             // 
             // textBoxPageNumber
             // 
-            this.textBoxPageNumber.Location = new System.Drawing.Point(175, 279);
+            this.textBoxPageNumber.Location = new System.Drawing.Point(175, 306);
             this.textBoxPageNumber.Name = "textBoxPageNumber";
             this.textBoxPageNumber.Size = new System.Drawing.Size(203, 22);
             this.textBoxPageNumber.TabIndex = 7;
@@ -110,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(62, 198);
+            this.label3.Location = new System.Drawing.Point(62, 225);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 17);
             this.label3.TabIndex = 8;
@@ -119,7 +122,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 240);
+            this.label4.Location = new System.Drawing.Point(61, 267);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 17);
             this.label4.TabIndex = 9;
@@ -128,7 +131,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 282);
+            this.label5.Location = new System.Drawing.Point(61, 309);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 17);
             this.label5.TabIndex = 10;
@@ -137,7 +140,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(62, 160);
+            this.label6.Location = new System.Drawing.Point(62, 187);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 17);
             this.label6.TabIndex = 12;
@@ -145,16 +148,48 @@
             // 
             // textBoxPfxPassword
             // 
-            this.textBoxPfxPassword.Location = new System.Drawing.Point(175, 160);
+            this.textBoxPfxPassword.Location = new System.Drawing.Point(175, 187);
             this.textBoxPfxPassword.Name = "textBoxPfxPassword";
             this.textBoxPfxPassword.Size = new System.Drawing.Size(205, 22);
             this.textBoxPfxPassword.TabIndex = 11;
+            // 
+            // buttonBrowsePdf
+            // 
+            this.buttonBrowsePdf.Location = new System.Drawing.Point(744, 78);
+            this.buttonBrowsePdf.Name = "buttonBrowsePdf";
+            this.buttonBrowsePdf.Size = new System.Drawing.Size(75, 28);
+            this.buttonBrowsePdf.TabIndex = 13;
+            this.buttonBrowsePdf.Text = "Browse...";
+            this.buttonBrowsePdf.UseVisualStyleBackColor = true;
+            this.buttonBrowsePdf.Click += new System.EventHandler(this.buttonBrowsePdf_Click);
+            // 
+            // buttonBrowsePfx
+            // 
+            this.buttonBrowsePfx.Location = new System.Drawing.Point(744, 144);
+            this.buttonBrowsePfx.Name = "buttonBrowsePfx";
+            this.buttonBrowsePfx.Size = new System.Drawing.Size(75, 28);
+            this.buttonBrowsePfx.TabIndex = 14;
+            this.buttonBrowsePfx.Text = "Browse...";
+            this.buttonBrowsePfx.UseVisualStyleBackColor = true;
+            this.buttonBrowsePfx.Click += new System.EventHandler(this.buttonBrowsePfx_Click);
+            // 
+            // labelPdfSize
+            // 
+            this.labelPdfSize.AutoSize = true;
+            this.labelPdfSize.Location = new System.Drawing.Point(179, 116);
+            this.labelPdfSize.Name = "labelPdfSize";
+            this.labelPdfSize.Size = new System.Drawing.Size(60, 17);
+            this.labelPdfSize.TabIndex = 15;
+            this.labelPdfSize.Text = "PdfSize:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 450);
+            this.Controls.Add(this.labelPdfSize);
+            this.Controls.Add(this.buttonBrowsePfx);
+            this.Controls.Add(this.buttonBrowsePdf);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxPfxPassword);
             this.Controls.Add(this.label5);
@@ -190,6 +225,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxPfxPassword;
+        private System.Windows.Forms.Button buttonBrowsePdf;
+        private System.Windows.Forms.Button buttonBrowsePfx;
+        private System.Windows.Forms.Label labelPdfSize;
     }
 }
 

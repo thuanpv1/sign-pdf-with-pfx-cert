@@ -102,7 +102,7 @@ namespace sign_pdf_with_pfx_cert
                     }
                 }
 
-                signatureAppearance.Layer2Text = "Chứng thực bởi Evergreen CA\nKý bởi: " + personWhoSigned + "\nNgày Ký: " + signDate;
+                signatureAppearance.Layer2Text = "Chứng thực bởi iGreensCA\nKý bởi: " + personWhoSigned + "\nNgày Ký: " + signDate;
 
                 int positionx = locationx + 5;
                 int positiony = 832 - (locationy + 40);

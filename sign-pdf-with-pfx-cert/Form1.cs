@@ -12,6 +12,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static iTextSharp.text.pdf.PdfSignatureAppearance;
 using X509Certificate = Org.BouncyCastle.X509.X509Certificate;
 
 namespace sign_pdf_with_pfx_cert
@@ -32,8 +33,9 @@ namespace sign_pdf_with_pfx_cert
         {
 
         }
-        public string SignPDF(string pdfPath, string pfxPath, string pfxPassword,  int locationx, int locationy, int numPage)
+        public string SignPDF(string pdfPath, string pfxPath, string pfxPassword,  int locationx, int locationy, int numPage, string signDate = "05/29/2015 5:50 AM")
         {
+            string fontPath = @".\ARIALUNI.TTF";
             string strRe = "";
             try
             {
@@ -68,16 +70,60 @@ namespace sign_pdf_with_pfx_cert
 
                 PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
 
+                // setup font
+
+                BaseFont bf = null;
+                try
+                {
+                    if (String.IsNullOrEmpty(fontPath))
+                    {
+                        bf = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                    }
+                    else
+                    {
+                        bf = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+
+                iTextSharp.text.Font f = new iTextSharp.text.Font(bf, 7, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.RED);
+
+                signatureAppearance.Layer2Font = f;
+                // Custom signature appearance text
+                string personWhoSigned = "unknown";
+                foreach (var info in certClient.Subject.Split(','))
+                {
+                    if (info.Contains("CN="))
+                    {
+                        personWhoSigned = info.Split('=')[1];
+                    }
+                }
+
+                signatureAppearance.Layer2Text = "Chứng thực bởi Evergreen CA\nKý bởi: " + personWhoSigned + "\nNgày Ký: " + signDate;
+
                 int positionx = locationx + 5;
-                int positiony = 832 - (locationy + 55);
-                int positionyrel = positiony - 55;
-                int positionxrel = positionx + 160;
-
-                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(positionx, positiony, positionxrel, positionyrel), numPage, certClient.GetSerialNumberString());
-
-                signatureAppearance.Reason = "I have reviewed this document";
-                signatureAppearance.Location = "Hanoi";
-                signatureAppearance.Contact = "Email: info@egt.com.vn";
+                int positiony = 832 - (locationy + 40);
+                int positionyrel = positiony - 40;
+                int positionxrel = positionx + 100;
+                iTextSharp.text.Rectangle container = new iTextSharp.text.Rectangle(positionx, positiony, positionxrel, positionyrel);
+                container.BackgroundColor = iTextSharp.text.BaseColor.WHITE;
+                try
+                {
+                    signatureAppearance.SetVisibleSignature(container, numPage, certClient.GetSerialNumberString());
+                }
+                catch
+                {
+                    MessageBox.Show("Bạn đã ký rồi!", "Error");
+                    return strRe;
+                }
+                signatureAppearance.SignatureRenderingMode = RenderingMode.DESCRIPTION;
+                signatureAppearance.SignDate = DateTime.Parse(signDate);
+                signatureAppearance.Reason = "I approved this document";
+                signatureAppearance.Location = "VN";
+                signatureAppearance.Contact = "Email: info@egt.vn";
                 //signatureAppearance.SignatureGraphic = Image.GetInstance(100, 200,, @"D:\\tick.png");
 
                 //signatureAppearance.Image = iTextSharp.text.Image.GetInstance(@"D:\\logosmartsign.png");
@@ -94,10 +140,7 @@ namespace sign_pdf_with_pfx_cert
 
                 inputPdf.Close();
                 pdfStamper.Close();
-
-
-                File.Delete(@"output\" + dtn + ".pdf");
-
+                MessageBox.Show("Ký thành công!", "Info");
                 Byte[] input = File.ReadAllBytes(@"output\" + dtn + "_signed.pdf");
 
                 strRe = Convert.ToBase64String(input);

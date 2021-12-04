@@ -11,3 +11,4 @@ D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-
 D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-pdf-with-pfx-cert.csproj.CopyComplete
 D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-pdf-with-pfx-cert.exe
 D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-pdf-with-pfx-cert.pdb
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-pdf-with-pfx-cert.csprojAssemblyReference.cache

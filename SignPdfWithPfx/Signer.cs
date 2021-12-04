@@ -18,8 +18,9 @@ namespace SignPdfWithPfx
 {
     public class Signer
     {
-        public byte[] SignPDFPath(string pdfPath, string pfxPath, string pfxPassword, int locationx, int locationy, int numPage, int position = 1, string signDate = "12/04/2021 15:50 PM")
+        public static byte[] SignPDFPath(string pdfPath, string pfxPath, string pfxPassword, int locationx = 5, int locationy = 20, int numPage = 1, int position = 1, string signDate = "12/04/2021 15:50 PM")
         {
+            System.IO.Directory.CreateDirectory(@"output");
             string fontPath = @".\ARIALUNI.TTF";
             try
             {
@@ -134,8 +135,9 @@ namespace SignPdfWithPfx
             }
             return null;
         }
-        public byte[] SignPDFBinary(byte[] pdfBinary, byte[] pfxBinary, string pfxPassword, int locationx, int locationy, int numPage, int position = 1, string signDate = "12/04/2021 15:50 PM")
+        public static byte[] SignPDFBinary(byte[] pdfBinary, byte[] pfxBinary, string pfxPassword, int locationx = 5, int locationy = 20, int numPage = 1, int position = 1, string signDate = "12/04/2021 15:50 PM")
         {
+            System.IO.Directory.CreateDirectory(@"output");
             string fontPath = @".\ARIALUNI.TTF";
             try
             {

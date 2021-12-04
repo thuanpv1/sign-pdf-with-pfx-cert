@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sign-pdf-with-pfx-cert", "sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert.csproj", "{09CBB62E-4749-43A7-BD6B-094112B68B8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignPdfWithPfx", "SignPdfWithPfx\SignPdfWithPfx.csproj", "{983BD454-1649-4956-96D2-79B9EAC8A7F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{09CBB62E-4749-43A7-BD6B-094112B68B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09CBB62E-4749-43A7-BD6B-094112B68B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09CBB62E-4749-43A7-BD6B-094112B68B8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{983BD454-1649-4956-96D2-79B9EAC8A7F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{983BD454-1649-4956-96D2-79B9EAC8A7F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{983BD454-1649-4956-96D2-79B9EAC8A7F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{983BD454-1649-4956-96D2-79B9EAC8A7F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

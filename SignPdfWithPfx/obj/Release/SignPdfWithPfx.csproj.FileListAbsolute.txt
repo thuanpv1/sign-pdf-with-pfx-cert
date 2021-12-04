@@ -1,0 +1,10 @@
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\bin\Release\SignPdfWithPfx.dll
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\bin\Release\SignPdfWithPfx.pdb
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\bin\Release\BouncyCastle.Crypto.dll
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\bin\Release\itextsharp.dll
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\bin\Release\itextsharp.xml
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\obj\Release\SignPdfWithPfx.csprojAssemblyReference.cache
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\obj\Release\SignPdfWithPfx.csproj.CoreCompileInputs.cache
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\obj\Release\SignPdfWithPfx.csproj.CopyComplete
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\obj\Release\SignPdfWithPfx.dll
+D:\EverGreenTech\sign-pdf-with-pfx-cert\SignPdfWithPfx\obj\Release\SignPdfWithPfx.pdb

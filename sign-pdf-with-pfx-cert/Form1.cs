@@ -33,7 +33,7 @@ namespace sign_pdf_with_pfx_cert
         {
 
         }
-        public string SignPDF(string pdfPath, string pfxPath, string pfxPassword,  int locationx, int locationy, int numPage, string signDate = "05/29/2015 5:50 AM")
+        public string SignPDF(string pdfPath, string pfxPath, string pfxPassword,  int locationx = 5, int locationy = 20, int numPage = 1, string signDate = "05/29/2015 5:50 AM")
         {
             string fontPath = @".\ARIALUNI.TTF";
             string strRe = "";
@@ -103,11 +103,12 @@ namespace sign_pdf_with_pfx_cert
                 }
 
                 signatureAppearance.Layer2Text = "Chứng thực bởi iGreensCA\nKý bởi: " + personWhoSigned + "\nNgày Ký: " + signDate;
+                iTextSharp.text.Rectangle pagesize = inputPdf.GetPageSize(1);
 
-                int positionx = locationx + 5;
-                int positiony = 832 - (locationy + 40);
-                int positionyrel = positiony - 40;
-                int positionxrel = positionx + 100;
+                float positionx = (3 - 1) * 100 + locationx;
+                float positiony = locationy;
+                float positionyrel = positiony + 40;
+                float positionxrel = positionx + 100;
                 iTextSharp.text.Rectangle container = new iTextSharp.text.Rectangle(positionx, positiony, positionxrel, positionyrel);
                 container.BackgroundColor = iTextSharp.text.BaseColor.WHITE;
                 try
@@ -179,7 +180,7 @@ namespace sign_pdf_with_pfx_cert
                 if (coorX < 0) coorX = 0;
                 if (coorY < 0) coorY = 0;
 
-                SignPDF(pathToPdf, pathToPfx, pfxPassword, coorX, coorY, pageNum);
+                SignPDF(pathToPdf, pathToPfx, pfxPassword, locationx: coorX, locationy: coorY, numPage: pageNum);
             }
             catch (Exception ex)
             {

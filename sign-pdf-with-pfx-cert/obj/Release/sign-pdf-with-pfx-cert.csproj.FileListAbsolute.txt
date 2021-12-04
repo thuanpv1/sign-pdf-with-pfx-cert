@@ -1,0 +1,13 @@
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Release\sign-pdf-with-pfx-cert.exe.config
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Release\sign-pdf-with-pfx-cert.exe
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Release\sign-pdf-with-pfx-cert.pdb
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Release\BouncyCastle.Crypto.dll
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Release\itextsharp.dll
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\bin\Release\itextsharp.xml
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign_pdf_with_pfx_cert.Form1.resources
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign_pdf_with_pfx_cert.Properties.Resources.resources
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-pdf-with-pfx-cert.csproj.GenerateResource.cache
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-pdf-with-pfx-cert.csproj.CoreCompileInputs.cache
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-pdf-with-pfx-cert.csproj.CopyComplete
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-pdf-with-pfx-cert.exe
+D:\EverGreenTech\sign-pdf-with-pfx-cert\sign-pdf-with-pfx-cert\obj\Release\sign-pdf-with-pfx-cert.pdb
